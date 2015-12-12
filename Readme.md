@@ -9,8 +9,8 @@ rake -T
 ```
 Commands for this demonstration are: 
 ```
-rake release:dll
-rake release:main
+rake build:dll
+rake build:main
 ```
 
 Building DLL
@@ -25,7 +25,7 @@ Building Application
 --------------------
 To build the application that relies on the DLL, type:
 ```
-rake release:main
+rake build:main
 ```
 which will compiles `src/main/main.c` to `build/realease/dll/main.exe`. Invoking this command automatically invokes the building of the DLL if necessary.
 
