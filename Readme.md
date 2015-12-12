@@ -9,7 +9,7 @@ rake -T
 ```
 Commands for this demonstration are: 
 ```
-rake release:Dll
+rake release:dll
 rake release:main
 ```
 
