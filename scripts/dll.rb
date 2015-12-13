@@ -47,14 +47,14 @@ config_main = {
 namespace :build do
   dll_library = "build/release/dll/TestDll.dll"
   main_exe = "build/release/dll/main.exe"
-  desc 'Release DLL'
+  desc 'Build DLL'
   task :dll do
     dep_list = compile_all('src', 'build/release/dll', config_dll)
     link_all(getDependers(dep_list), dll_library, config_dll)
     Rake::Task[dll_library].invoke
   end
   
-  desc 'Release main'
+  desc 'Build main'
   task :main => :dll do
     dep_list = compile_all('src/main', 'build/release/dll', config_main)
     link_all(getDependers(dep_list), main_exe, config_main)
