@@ -11,6 +11,7 @@ Commands for this demonstration are:
 ```
 rake build:dll
 rake build:main
+rake build:copy
 ```
 
 Building DLL
@@ -33,6 +34,18 @@ To execute `main.exe`, type:
 ```
 ./build/release/dll/main.exe
 ```
+
+Calling the function(s) in the DLL in Python
+--------------------------------------------
+There is a python example script in the `python` folder, which shows how to dynamically load the DLL (that resides in the same directory as the script) and call the `Add()` function. Before running the script, you must build the DLL and copy it into the `python` folder. All this can be done by the following command:
+```
+rake build:copy
+```
+To run the python script, type:
+```
+python python/testme.py
+```
+The script adds 3 and 67 and then print the result. You will see `70` printed in the console.
 
 Note
 ----

@@ -75,6 +75,7 @@ namespace :build do
 
   desc 'Copy DLL to /python folder'
   task :copy => :dll2 do
+    puts("Copying #{dll_library} into python/ folder...")
     FileUtils.cp(dll_library, 'python/')
   end
 end
