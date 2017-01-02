@@ -27,11 +27,11 @@ To build the application that relies on the DLL, type:
 ```
 rake build:main
 ```
-which compiles `src/main/main.c` to `build/realease/dll/main.exe`. Invoking this command automatically invokes the building of the DLL if necessary.
+which compiles `src/main/main.c` to `build/release/dll/main.exe`. Invoking this command automatically invokes the building of the DLL if necessary.
 
 To execute `main.exe`, type:
 ```
-./build/realease/dll/main.exe
+./build/release/dll/main.exe
 ```
 
 Note

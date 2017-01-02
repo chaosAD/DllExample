@@ -43,6 +43,10 @@ config_main = {
                     :define => '-D'}
 }
 
+dll_dependency = {
+  # depender          dependees
+  'TestDll.o'      => ['TestDll.c'],
+}
 
 namespace :build do
   dll_library = "build/release/dll/TestDll.dll"
@@ -53,11 +57,24 @@ namespace :build do
     link_all(getDependers(dep_list), dll_library, config_dll)
     Rake::Task[dll_library].invoke
   end
-  
+
+  desc 'Build DLL another way....'
+  task :dll2 do
+    # Compile only file(s) given in the dll_dependency list
+    dep_list = compile_list(dll_dependency, 'src', 'build/release/dll', '', config_dll)
+    link_all(getDependers(dep_list), dll_library, config_dll)
+    Rake::Task[dll_library].invoke
+  end
+
   desc 'Build main'
   task :main => :dll do
     dep_list = compile_all('src/main', 'build/release/dll', config_main)
     link_all(getDependers(dep_list), main_exe, config_main)
     Rake::Task[main_exe].invoke
-  end 
+  end
+
+  desc 'Copy DLL to /python folder'
+  task :copy => :dll2 do
+    FileUtils.cp(dll_library, 'python/')
+  end
 end
