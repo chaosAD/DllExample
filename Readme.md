@@ -45,7 +45,7 @@ To run the python script, type:
 ```
 python python/testme.py
 ```
-The script adds 3 and 67 and then print the result. You will see `70` printed in the console.
+The script adds 3 and 67 and then print the result. You will see `Added value = 70` get printed in the console.
 
 Note
 ----
