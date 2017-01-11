@@ -14,6 +14,8 @@ config_dll = {
   :linker_options => ['-s',
                       '-shared',
                       '-Wl,--subsystem,windows'],     # Other linker options
+  # The following lengthy option keywords for GCC can be replaced with just:
+  #   :option_keys  => GCC_OPTION_KEYWORDS
   :option_keys  => {:library => '-l',
                     :library_path => '-L',
                     :include_path => '-I',
@@ -34,13 +36,8 @@ config_main = {
 # :linker_script => 'MyLinkerScript.ld',
 # :compiler_options => ['-DOK'],          # Other compiler options
   :linker_options => ['-s'],              # Other linker options
-  :option_keys  => {:library => '-l',
-                    :library_path => '-L',
-                    :include_path => '-I',
-                    :output_file => '-o',
-                    :compile => '-c',
-                    :linker_script => '-T',
-                    :define => '-D'}
+  :option_keys  => GCC_OPTION_KEYWORDS    # This is the shorter way to assign
+                                          #  option keywords
 }
 
 dll_dependency = {

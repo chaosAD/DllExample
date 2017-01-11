@@ -1,4 +1,4 @@
-# Build script for C (ver 0.12)
+# Build script for C (ver 0.12a)
 # Copyright (C) 2015-2016 Poh Tze Ven <pohtv@acd.tarc.edu.my>
 #
 # This file is part of C Compiler & Interpreter project.
@@ -19,6 +19,15 @@ require 'rexml/document'
 include REXML
 
 load File.join(File.dirname(__FILE__), 'helper.rb')
+
+# CONSTANTS
+GCC_OPTION_KEYWORDS = { :library => '-l',
+                        :library_path => '-L',
+                        :include_path => '-I',
+                        :output_file => '-o',
+                        :compile => '-c',
+                        :linker_script => '-T',
+                        :define => '-D'}
 
 $programs_found = {}
 
